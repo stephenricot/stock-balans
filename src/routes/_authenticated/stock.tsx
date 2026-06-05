@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { PageHeader } from "@/components/PageHeader";
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/_authenticated/stock")({
 
 function useDebounced<T>(v: T, ms = 250) {
   const [d, setD] = useState(v);
-  useMemo(() => {
+  useEffect(() => {
     const t = setTimeout(() => setD(v), ms);
     return () => clearTimeout(t);
   }, [v, ms]);
