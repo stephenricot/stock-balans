@@ -1,11 +1,12 @@
 import { Link, useRouter, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, Package, Upload, ArrowDownToLine, Settings, LogOut, Boxes } from "lucide-react";
+import { LayoutDashboard, Package, Upload, ArrowDownToLine, Settings, LogOut, Boxes, ShieldCheck } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import type { ReactNode } from "react";
 
-const nav = [
+const baseNav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/stock", label: "Stock", icon: Package },
   { to: "/import", label: "Import", icon: Upload },
@@ -13,9 +14,14 @@ const nav = [
   { to: "/settings", label: "Settings", icon: Settings },
 ] as const;
 
+const adminNav = { to: "/admin", label: "Admin", icon: ShieldCheck } as const;
+
 export function AppShell({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { role } = useAuth();
+
+  const nav = role === "super-admin" ? [...baseNav, adminNav] : baseNav;
 
   const signOut = async () => {
     await supabase.auth.signOut();
