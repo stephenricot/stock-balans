@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
@@ -29,12 +29,14 @@ function AuthPage() {
   const [businessName, setBusinessName] = useState("");
   const [busy, setBusy] = useState(false);
 
+  const strength = useMemo(() => getPasswordStrength(password), [password]);
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true);
     try {
       if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
@@ -43,10 +45,22 @@ function AuthPage() {
           },
         });
         if (error) throw error;
-        toast.success("Account created. You're signed in.");
+        if (data.user?.identities?.length === 0) {
+          toast.info("This email is already registered. Please sign in instead.");
+        } else {
+          toast.success("Account created. Please check your email to verify your account before signing in.");
+        }
+        setMode("signin");
+        setPassword("");
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
+        if (error) {
+          if (error.message.toLowerCase().includes("email not confirmed") || error.message.toLowerCase().includes("not confirmed")) {
+            toast.error("A verification is needed to sign in to your account. Please check your email.");
+          } else {
+            throw error;
+          }
+        }
       }
     } catch (err) {
       toast.error((err as Error).message);
@@ -83,8 +97,34 @@ function AuthPage() {
                 <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="pw">Password</Label>
-                <Input id="pw" type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} />
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="pw">Password</Label>
+                  {mode === "signup" && password.length > 0 && (
+                    <span className={`text-xs font-medium ${strength.color}`}>
+                      {strength.label}
+                    </span>
+                  )}
+                </div>
+                <Input
+                  id="pw"
+                  type="password"
+                  required
+                  minLength={6}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                {mode === "signup" && password.length > 0 && (
+                  <div className="flex gap-1 pt-1">
+                    {[1, 2, 3, 4].map((level) => (
+                      <div
+                        key={level}
+                        className={`h-1.5 flex-1 rounded-full transition-colors ${
+                          strength.score >= level ? strength.barColor : "bg-muted"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
               <Button type="submit" className="w-full" disabled={busy}>
                 {busy ? "Please wait…" : mode === "signin" ? "Sign in" : "Create account"}
@@ -97,4 +137,26 @@ function AuthPage() {
       </Card>
     </div>
   );
+}
+
+function getPasswordStrength(password: string) {
+  let score = 0;
+  if (password.length >= 8) score++;
+  if (password.length >= 10) score++;
+  if (/[A-Z]/.test(password) && /[a-z]/.test(password)) score++;
+  if (/\d/.test(password)) score++;
+  if (/[^A-Za-z0-9]/.test(password)) score++;
+
+  // clamp to 1-4
+  if (score <= 1) score = 1;
+  if (score >= 4) score = 4;
+
+  const levels: Record<number, { label: string; color: string; barColor: string }> = {
+    1: { label: "Weak", color: "text-red-500", barColor: "bg-red-500" },
+    2: { label: "Fair", color: "text-amber-500", barColor: "bg-amber-500" },
+    3: { label: "Strong", color: "text-lime-600", barColor: "bg-lime-500" },
+    4: { label: "Very Strong", color: "text-emerald-600", barColor: "bg-emerald-500" },
+  };
+
+  return { score, ...levels[score] };
 }
