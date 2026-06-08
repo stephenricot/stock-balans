@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { requireSuperAdmin } from "./admin.middleware";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
 export interface AdminUser {
@@ -20,17 +20,8 @@ export interface AdminStats {
 }
 
 export const getAdminUsers = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .handler(async ({ context }) => {
-    const { data: callerProfile } = await context.supabase
-      .from("user_profiles")
-      .select("role")
-      .eq("user_id", context.userId)
-      .maybeSingle();
-
-    if (callerProfile?.role !== "super-admin") {
-      throw new Error("Forbidden: super-admin access required");
-    }
+  .middleware([requireSuperAdmin])
+  .handler(async () => {
 
     const [profilesResult, inventoryResult] = await Promise.all([
       supabaseAdmin
