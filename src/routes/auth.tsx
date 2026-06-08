@@ -36,7 +36,7 @@ function AuthPage() {
     setBusy(true);
     try {
       if (mode === "signup") {
-        const { data, error } = await supabase.auth.signUp({
+        const { error } = await supabase.auth.signUp({
           email,
           password,
           options: {
@@ -45,11 +45,7 @@ function AuthPage() {
           },
         });
         if (error) throw error;
-        if (data.user?.identities?.length === 0) {
-          toast.info("This email is already registered. Please sign in instead.");
-        } else {
-          toast.success("Account created. Please check your email to verify your account before signing in.");
-        }
+        toast.success("If this email is not yet registered, you will receive a confirmation link shortly.");
         setMode("signin");
         setPassword("");
       } else {
