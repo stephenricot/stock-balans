@@ -1,0 +1,46 @@
+-- Performance indexes
+CREATE INDEX IF NOT EXISTS inventory_business_name_idx
+  ON public.inventory (business_id, name);
+
+CREATE INDEX IF NOT EXISTS inventory_business_category_idx
+  ON public.inventory (business_id, category)
+  WHERE category IS NOT NULL;
+
+-- CHECK constraints (idempotent)
+DO $$ BEGIN
+  ALTER TABLE public.inventory
+    ADD CONSTRAINT inventory_quantity_non_negative CHECK (quantity >= 0);
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
+DO $$ BEGIN
+  ALTER TABLE public.inventory
+    ADD CONSTRAINT inventory_reorder_point_non_negative CHECK (reorder_point >= 0);
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
+DO $$ BEGIN
+  ALTER TABLE public.user_profiles
+    ADD CONSTRAINT user_profiles_role_valid
+      CHECK (role IN ('user-supplier', 'admin', 'super-admin'));
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
+-- Schedule low-stock alerts daily at 08:00 UTC via pg_cron
+CREATE EXTENSION IF NOT EXISTS pg_cron;
+CREATE EXTENSION IF NOT EXISTS pg_net;
+
+SELECT cron.unschedule('low-stock-alerts-daily')
+  WHERE EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'low-stock-alerts-daily');
+
+SELECT cron.schedule(
+  'low-stock-alerts-daily',
+  '0 8 * * *',
+  $$
+    SELECT net.http_post(
+      url     := current_setting('app.supabase_url') || '/functions/v1/low-stock-alerts',
+      headers := jsonb_build_object(
+        'Content-Type',  'application/json',
+        'Authorization', 'Bearer ' || current_setting('app.service_role_key')
+      ),
+      body    := '{}'::jsonb
+    );
+  $$
+);
