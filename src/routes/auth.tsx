@@ -36,6 +36,13 @@ function AuthPage() {
     setBusy(true);
     try {
       if (mode === "signup") {
+        const pwnedCount = await checkPasswordPwned(password);
+        if (pwnedCount > 0) {
+          toast.error(
+            `This password has appeared in ${pwnedCount.toLocaleString()} data breach${pwnedCount === 1 ? "" : "es"}. Please choose a different password.`,
+          );
+          return;
+        }
         const { error } = await supabase.auth.signUp({
           email,
           password,
@@ -133,6 +140,31 @@ function AuthPage() {
       </Card>
     </div>
   );
+}
+
+async function checkPasswordPwned(password: string): Promise<number> {
+  const msgBuffer = new TextEncoder().encode(password);
+  const hashBuffer = await crypto.subtle.digest("SHA-1", msgBuffer);
+  const hashHex = Array.from(new Uint8Array(hashBuffer))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .toUpperCase();
+  const prefix = hashHex.slice(0, 5);
+  const suffix = hashHex.slice(5);
+  try {
+    const res = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`, {
+      headers: { "Add-Padding": "true" },
+    });
+    if (!res.ok) return 0;
+    const text = await res.text();
+    for (const line of text.split("\n")) {
+      const [lineSuffix, countStr] = line.trim().split(":");
+      if (lineSuffix === suffix) return parseInt(countStr, 10);
+    }
+  } catch {
+    return 0;
+  }
+  return 0;
 }
 
 function getPasswordStrength(password: string) {
