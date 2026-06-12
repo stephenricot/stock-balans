@@ -841,3 +841,6 @@ export {
   bumpX as y,
   curveBasis as z
 };
+
+
+export { s, a, c, k, x, y }
