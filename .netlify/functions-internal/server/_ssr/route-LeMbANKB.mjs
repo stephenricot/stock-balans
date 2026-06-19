@@ -1,6 +1,6 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { d as useNavigate, O as Outlet } from "../_libs/tanstack__react-router.mjs";
-import { u as useAuth } from "./router-CLOo5LxO.mjs";
+import { u as useAuth } from "./router-D2KHmaWE.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";

@@ -1,6 +1,6 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { d as useNavigate, O as Outlet, u as useRouter, e as useRouterState, L as Link } from "../_libs/tanstack__react-router.mjs";
-import { u as useAuth } from "./router-CLOo5LxO.mjs";
+import { u as useAuth } from "./router-D2KHmaWE.mjs";
 import { s as supabase } from "./client-CV_TjftL.mjs";
 import { c as cn } from "./utils-H80jjgLf.mjs";
 import { B as Button } from "./button-BC9oXVxV.mjs";

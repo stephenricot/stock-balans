@@ -26,7 +26,7 @@ import "../_libs/iceberg-js.mjs";
 import "../_libs/supabase__auth-js.mjs";
 import "tslib";
 import "../_libs/supabase__functions-js.mjs";
-const appCss = "/assets/styles-DjSuvkVb.css";
+const appCss = "/assets/styles-Xav4D-zj.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -160,7 +160,7 @@ const Route$c = createFileRoute("/demo")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$c, "component")
 });
-const $$splitComponentImporter$b = () => import("./auth-DXh75d1u.mjs");
+const $$splitComponentImporter$b = () => import("./auth-Bnp8Dyti.mjs");
 const Route$b = createFileRoute("/auth")({
   head: () => ({
     meta: [{
@@ -169,11 +169,11 @@ const Route$b = createFileRoute("/auth")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$b, "component")
 });
-const $$splitComponentImporter$a = () => import("./route-DHS6cI9t.mjs");
+const $$splitComponentImporter$a = () => import("./route-C2FFN93g.mjs");
 const Route$a = createFileRoute("/_authenticated")({
   component: lazyRouteComponent($$splitComponentImporter$a, "component")
 });
-const $$splitComponentImporter$9 = () => import("./index-BJRzO0R9.mjs");
+const $$splitComponentImporter$9 = () => import("./index-xk1U1CGX.mjs");
 const Route$9 = createFileRoute("/")({
   head: () => ({
     meta: [{
@@ -218,7 +218,7 @@ const Route$5 = createFileRoute("/_authenticated/dashboard")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-const $$splitComponentImporter$4 = () => import("./route-BBA_A0Eh.mjs");
+const $$splitComponentImporter$4 = () => import("./route-LeMbANKB.mjs");
 const Route$4 = createFileRoute("/_authenticated/admin")({
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
@@ -231,7 +231,7 @@ const Route$3 = createFileRoute("/_authenticated/outbound/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./index-CqWryBRx.mjs");
+const $$splitComponentImporter$2 = () => import("./index-Dvzx2A71.mjs");
 const Route$2 = createFileRoute("/_authenticated/admin/")({
   head: () => ({
     meta: [{
@@ -249,7 +249,7 @@ const Route$1 = createFileRoute("/_authenticated/outbound/new")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./users-Dsk3I1ej.mjs");
+const $$splitComponentImporter = () => import("./users-yVFwhxRI.mjs");
 const Route = createFileRoute("/_authenticated/admin/users")({
   head: () => ({
     meta: [{

@@ -73,8 +73,19 @@ function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-accent/30 p-4">
-      <Card className="w-full max-w-md shadow-xl">
+    <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80')",
+        }}
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" />
+
+      <Card className="relative z-10 w-full max-w-md shadow-2xl bg-white/95 border-0 rounded-2xl">
         <CardHeader className="text-center">
           <div className="mx-auto size-12 rounded-xl bg-primary grid place-items-center mb-2">
             <Boxes className="size-6 text-primary-foreground" />

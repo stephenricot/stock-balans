@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { d as useNavigate } from "../_libs/tanstack__react-router.mjs";
 import { s as supabase } from "./client-CV_TjftL.mjs";
-import { u as useAuth } from "./router-CLOo5LxO.mjs";
+import { u as useAuth } from "./router-D2KHmaWE.mjs";
 import { B as Button } from "./button-BC9oXVxV.mjs";
 import { I as Input } from "./input-C0QjszdI.mjs";
 import { L as Label } from "./label-JU3yqRBo.mjs";
@@ -152,40 +152,46 @@ function AuthPage() {
       setBusy(false);
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-accent/30 p-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "w-full max-w-md shadow-xl", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { className: "text-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto size-12 rounded-xl bg-primary grid place-items-center mb-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Boxes, { className: "size-6 text-primary-foreground" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-2xl", children: "StockBalanse" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: "Excel-driven inventory for small teams" })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { value: mode, onValueChange: (v) => setMode(v), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsList, { className: "grid w-full grid-cols-2", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "signin", children: "Sign in" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "signup", children: "Sign up" })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative min-h-screen flex items-center justify-center p-4 overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-cover bg-center bg-no-repeat", style: {
+      backgroundImage: "url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80')"
+    } }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-slate-900/80 backdrop-blur-sm" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "relative z-10 w-full max-w-md shadow-2xl bg-white/95 border-0 rounded-2xl", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { className: "text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto size-12 rounded-xl bg-primary grid place-items-center mb-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Boxes, { className: "size-6 text-primary-foreground" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-2xl", children: "StockBalanse" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: "Excel-driven inventory for small teams" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: submit, className: "space-y-4 mt-6", children: [
-        mode === "signup" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "biz", children: "Business name" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { id: "biz", value: businessName, onChange: (e) => setBusinessName(e.target.value), placeholder: "Acme Co." })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { value: mode, onValueChange: (v) => setMode(v), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsList, { className: "grid w-full grid-cols-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "signin", children: "Sign in" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "signup", children: "Sign up" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "email", children: "Email" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { id: "email", type: "email", required: true, value: email, onChange: (e) => setEmail(e.target.value) })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "pw", children: "Password" }),
-            mode === "signup" && password.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `text-xs font-medium ${strength.color}`, children: strength.label })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: submit, className: "space-y-4 mt-6", children: [
+          mode === "signup" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "biz", children: "Business name" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { id: "biz", value: businessName, onChange: (e) => setBusinessName(e.target.value), placeholder: "Acme Co." })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { id: "pw", type: "password", required: true, minLength: 6, value: password, onChange: (e) => setPassword(e.target.value) }),
-          mode === "signup" && password.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-1 pt-1", children: [1, 2, 3, 4].map((level) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1.5 flex-1 rounded-full transition-colors ${strength.score >= level ? strength.barColor : "bg-muted"}` }, level)) })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "email", children: "Email" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { id: "email", type: "email", required: true, value: email, onChange: (e) => setEmail(e.target.value) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "pw", children: "Password" }),
+              mode === "signup" && password.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `text-xs font-medium ${strength.color}`, children: strength.label })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { id: "pw", type: "password", required: true, minLength: 6, value: password, onChange: (e) => setPassword(e.target.value) }),
+            mode === "signup" && password.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-1 pt-1", children: [1, 2, 3, 4].map((level) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1.5 flex-1 rounded-full transition-colors ${strength.score >= level ? strength.barColor : "bg-muted"}` }, level)) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { type: "submit", className: "w-full", disabled: busy, children: busy ? "Please wait…" : mode === "signin" ? "Sign in" : "Create account" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { type: "submit", className: "w-full", disabled: busy, children: busy ? "Please wait…" : mode === "signin" ? "Sign in" : "Create account" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "signin" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "signup" })
-    ] }) })
-  ] }) });
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "signin" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "signup" })
+      ] }) })
+    ] })
+  ] });
 }
 async function checkPasswordPwned(password) {
   const msgBuffer = new TextEncoder().encode(password);
