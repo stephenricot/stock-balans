@@ -1,5 +1,5 @@
-import { a as createServerFn, T as TSS_SERVER_FUNCTION, g as getServerFnById } from "./server-H0kbbbKH.mjs";
-import { r as requireSuperAdmin } from "./admin.middleware-kBSoJ9mK.mjs";
+import { a as createServerFn, T as TSS_SERVER_FUNCTION, g as getServerFnById } from "./server-B5icM9w3.mjs";
+import { r as requireSuperAdmin } from "./admin.middleware-DpA4M0PG.mjs";
 var createSsrRpc = (functionId) => {
   const url = "/_serverFn/" + functionId;
   const serverFnMeta = { id: functionId };

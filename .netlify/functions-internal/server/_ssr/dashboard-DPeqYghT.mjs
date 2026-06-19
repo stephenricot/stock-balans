@@ -5,7 +5,7 @@ import { s as supabase } from "./client-CV_TjftL.mjs";
 import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent } from "./card-DQ5v2DYb.mjs";
 import { P as PageHeader } from "./PageHeader-DnYHjpB5.mjs";
 import { B as Button } from "./button-BC9oXVxV.mjs";
-import { P as Package, g as Layers, T as TriangleAlert, A as ArrowDownToLine } from "../_libs/lucide-react.mjs";
+import { c as Package, j as Layers, k as TriangleAlert, d as ArrowDownToLine } from "../_libs/lucide-react.mjs";
 import { R as ResponsiveContainer, B as BarChart, C as CartesianGrid, X as XAxis, Y as YAxis, T as Tooltip, a as Bar } from "../_libs/recharts.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";

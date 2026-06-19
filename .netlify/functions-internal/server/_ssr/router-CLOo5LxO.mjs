@@ -26,7 +26,7 @@ import "../_libs/iceberg-js.mjs";
 import "../_libs/supabase__auth-js.mjs";
 import "tslib";
 import "../_libs/supabase__functions-js.mjs";
-const appCss = "/assets/styles-FZCcoKic.css";
+const appCss = "/assets/styles-DjSuvkVb.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -120,7 +120,7 @@ function ErrorComponent({ error, reset }) {
     )
   ] }) });
 }
-const Route$c = createRootRouteWithContext()({
+const Route$d = createRootRouteWithContext()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -145,13 +145,22 @@ function RootShell({ children }) {
   ] });
 }
 function RootComponent() {
-  const { queryClient } = Route$c.useRouteContext();
+  const { queryClient } = Route$d.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(AuthProvider, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, { richColors: true, position: "top-right" })
   ] }) });
 }
-const $$splitComponentImporter$b = () => import("./auth-BWOnilZz.mjs");
+const $$splitComponentImporter$c = () => import("./demo-5U70QDtm.mjs");
+const Route$c = createFileRoute("/demo")({
+  head: () => ({
+    meta: [{
+      title: "Demo — StockBalanse"
+    }]
+  }),
+  component: lazyRouteComponent($$splitComponentImporter$c, "component")
+});
+const $$splitComponentImporter$b = () => import("./auth-DXh75d1u.mjs");
 const Route$b = createFileRoute("/auth")({
   head: () => ({
     meta: [{
@@ -160,11 +169,11 @@ const Route$b = createFileRoute("/auth")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$b, "component")
 });
-const $$splitComponentImporter$a = () => import("./route-CcIkruUY.mjs");
+const $$splitComponentImporter$a = () => import("./route-DHS6cI9t.mjs");
 const Route$a = createFileRoute("/_authenticated")({
   component: lazyRouteComponent($$splitComponentImporter$a, "component")
 });
-const $$splitComponentImporter$9 = () => import("./index-DFFwCHkM.mjs");
+const $$splitComponentImporter$9 = () => import("./index-BJRzO0R9.mjs");
 const Route$9 = createFileRoute("/")({
   head: () => ({
     meta: [{
@@ -173,7 +182,7 @@ const Route$9 = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$9, "component")
 });
-const $$splitComponentImporter$8 = () => import("./stock-B_rFxosv.mjs");
+const $$splitComponentImporter$8 = () => import("./stock-CRElfIBH.mjs");
 const Route$8 = createFileRoute("/_authenticated/stock")({
   head: () => ({
     meta: [{
@@ -209,7 +218,7 @@ const Route$5 = createFileRoute("/_authenticated/dashboard")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-const $$splitComponentImporter$4 = () => import("./route-wgu1PRJj.mjs");
+const $$splitComponentImporter$4 = () => import("./route-BBA_A0Eh.mjs");
 const Route$4 = createFileRoute("/_authenticated/admin")({
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
@@ -222,7 +231,7 @@ const Route$3 = createFileRoute("/_authenticated/outbound/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./index-CZHKrqKg.mjs");
+const $$splitComponentImporter$2 = () => import("./index-CqWryBRx.mjs");
 const Route$2 = createFileRoute("/_authenticated/admin/")({
   head: () => ({
     meta: [{
@@ -240,7 +249,7 @@ const Route$1 = createFileRoute("/_authenticated/outbound/new")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./users-C3WlCqGy.mjs");
+const $$splitComponentImporter = () => import("./users-Dsk3I1ej.mjs");
 const Route = createFileRoute("/_authenticated/admin/users")({
   head: () => ({
     meta: [{
@@ -249,19 +258,24 @@ const Route = createFileRoute("/_authenticated/admin/users")({
   }),
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });
+const DemoRoute = Route$c.update({
+  id: "/demo",
+  path: "/demo",
+  getParentRoute: () => Route$d
+});
 const AuthRoute = Route$b.update({
   id: "/auth",
   path: "/auth",
-  getParentRoute: () => Route$c
+  getParentRoute: () => Route$d
 });
 const AuthenticatedRouteRoute = Route$a.update({
   id: "/_authenticated",
-  getParentRoute: () => Route$c
+  getParentRoute: () => Route$d
 });
 const IndexRoute = Route$9.update({
   id: "/",
   path: "/",
-  getParentRoute: () => Route$c
+  getParentRoute: () => Route$d
 });
 const AuthenticatedStockRoute = Route$8.update({
   id: "/stock",
@@ -328,9 +342,10 @@ const AuthenticatedRouteRouteWithChildren = AuthenticatedRouteRoute._addFileChil
 const rootRouteChildren = {
   IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  AuthRoute
+  AuthRoute,
+  DemoRoute
 };
-const routeTree = Route$c._addFileChildren(rootRouteChildren)._addFileTypes();
+const routeTree = Route$d._addFileChildren(rootRouteChildren)._addFileTypes();
 const getRouter = () => {
   const queryClient = new QueryClient();
   const router2 = createRouter({

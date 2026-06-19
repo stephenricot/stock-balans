@@ -8,7 +8,7 @@ import { C as Card } from "./card-DQ5v2DYb.mjs";
 import { B as Button } from "./button-BC9oXVxV.mjs";
 import { I as Input } from "./input-C0QjszdI.mjs";
 import { T as Table, a as TableHeader, b as TableRow, c as TableHead, d as TableBody, e as TableCell } from "./table-RrXKMtST.mjs";
-import { D as Download, h as Plus, d as Search } from "../_libs/lucide-react.mjs";
+import { D as Download, P as Plus, S as Search } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";

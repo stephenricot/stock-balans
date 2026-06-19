@@ -1,11 +1,11 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { d as useNavigate, O as Outlet, u as useRouter, e as useRouterState, L as Link } from "../_libs/tanstack__react-router.mjs";
-import { u as useAuth } from "./router-CKI6RGD7.mjs";
+import { u as useAuth } from "./router-CLOo5LxO.mjs";
 import { s as supabase } from "./client-CV_TjftL.mjs";
 import { c as cn } from "./utils-H80jjgLf.mjs";
 import { B as Button } from "./button-BC9oXVxV.mjs";
 import "../_libs/sonner.mjs";
-import { B as Boxes, L as LayoutDashboard, P as Package, U as Upload, A as ArrowDownToLine, S as Settings, a as ShieldCheck, b as LogOut } from "../_libs/lucide-react.mjs";
+import { B as Boxes, L as LayoutDashboard, c as Package, U as Upload, d as ArrowDownToLine, e as Settings, f as ShieldCheck, g as LogOut } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";

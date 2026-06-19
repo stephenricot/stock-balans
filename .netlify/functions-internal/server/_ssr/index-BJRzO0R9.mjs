@@ -1,9 +1,9 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { u as useAuth } from "./router-CKI6RGD7.mjs";
+import { u as useAuth } from "./router-CLOo5LxO.mjs";
 import { B as Button } from "./button-BC9oXVxV.mjs";
 import "../_libs/sonner.mjs";
-import { B as Boxes, c as ArrowRight, U as Upload, P as Package, D as Download } from "../_libs/lucide-react.mjs";
+import { B as Boxes, A as ArrowRight, U as Upload, c as Package, D as Download } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
@@ -84,7 +84,7 @@ function HeroSection({
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg sm:text-xl text-white/75 max-w-2xl mx-auto leading-relaxed mb-10", children: "Import your existing stock sheet, track outbounds, and export clean reports — built for small teams who already live in spreadsheets." }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-4", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { size: "lg", className: "h-12 px-7 text-base font-semibold shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-shadow", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: ctaTo, children: "Get started — it's free" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { size: "lg", variant: "outline", className: "h-12 px-7 text-base font-medium bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm transition-all", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: ctaTo, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { size: "lg", variant: "outline", className: "h-12 px-7 text-base font-medium bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm transition-all", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/demo", children: [
           "Try demo",
           /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "size-4 ml-1.5" })
         ] }) })

@@ -105,7 +105,7 @@ function HeroSection({ ctaTo }: { ctaTo: string }) {
             className="h-12 px-7 text-base font-medium bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm transition-all"
             asChild
           >
-            <Link to={ctaTo}>
+            <Link to="/demo">
               Try demo
               <ArrowRight className="size-4 ml-1.5" />
             </Link>
