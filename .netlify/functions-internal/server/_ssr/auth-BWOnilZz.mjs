@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { d as useNavigate } from "../_libs/tanstack__react-router.mjs";
 import { s as supabase } from "./client-CV_TjftL.mjs";
-import { u as useAuth } from "./router-cqQ3kKVP.mjs";
+import { u as useAuth } from "./router-CKI6RGD7.mjs";
 import { B as Button } from "./button-BC9oXVxV.mjs";
 import { I as Input } from "./input-C0QjszdI.mjs";
 import { L as Label } from "./label-JU3yqRBo.mjs";

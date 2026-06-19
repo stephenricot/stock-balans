@@ -26,7 +26,7 @@ import "../_libs/iceberg-js.mjs";
 import "../_libs/supabase__auth-js.mjs";
 import "tslib";
 import "../_libs/supabase__functions-js.mjs";
-const appCss = "/assets/styles-BGNXKPPL.css";
+const appCss = "/assets/styles-FZCcoKic.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -151,7 +151,7 @@ function RootComponent() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, { richColors: true, position: "top-right" })
   ] }) });
 }
-const $$splitComponentImporter$b = () => import("./auth-QTbSuO05.mjs");
+const $$splitComponentImporter$b = () => import("./auth-BWOnilZz.mjs");
 const Route$b = createFileRoute("/auth")({
   head: () => ({
     meta: [{
@@ -160,12 +160,17 @@ const Route$b = createFileRoute("/auth")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$b, "component")
 });
-const $$splitComponentImporter$a = () => import("./route-C4qtkk-R.mjs");
+const $$splitComponentImporter$a = () => import("./route-CcIkruUY.mjs");
 const Route$a = createFileRoute("/_authenticated")({
   component: lazyRouteComponent($$splitComponentImporter$a, "component")
 });
-const $$splitComponentImporter$9 = () => import("./index-DhdRUUY6.mjs");
+const $$splitComponentImporter$9 = () => import("./index-DFFwCHkM.mjs");
 const Route$9 = createFileRoute("/")({
+  head: () => ({
+    meta: [{
+      title: "StockBalanse — Inventory tracking that starts with your Excel file"
+    }]
+  }),
   component: lazyRouteComponent($$splitComponentImporter$9, "component")
 });
 const $$splitComponentImporter$8 = () => import("./stock-B_rFxosv.mjs");
@@ -204,7 +209,7 @@ const Route$5 = createFileRoute("/_authenticated/dashboard")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-const $$splitComponentImporter$4 = () => import("./route-DrqEimgB.mjs");
+const $$splitComponentImporter$4 = () => import("./route-wgu1PRJj.mjs");
 const Route$4 = createFileRoute("/_authenticated/admin")({
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
@@ -217,7 +222,7 @@ const Route$3 = createFileRoute("/_authenticated/outbound/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./index-Gw8y3Y4M.mjs");
+const $$splitComponentImporter$2 = () => import("./index-CZHKrqKg.mjs");
 const Route$2 = createFileRoute("/_authenticated/admin/")({
   head: () => ({
     meta: [{
@@ -235,7 +240,7 @@ const Route$1 = createFileRoute("/_authenticated/outbound/new")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./users-BxvhC1pi.mjs");
+const $$splitComponentImporter = () => import("./users-C3WlCqGy.mjs");
 const Route = createFileRoute("/_authenticated/admin/users")({
   head: () => ({
     meta: [{
